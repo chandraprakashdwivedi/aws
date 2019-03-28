@@ -1,0 +1,15 @@
+//python boto code to assume role for role based session
+
+# Assume role
+    assumedRoleObject = myUtilities.assume_role(accountName)
+
+    # Get region
+    myRegion = myUtilities.getMyAWSRegion()
+    printOutput("Region: " + myRegion)
+
+    # Creating session
+    session = boto3.session.Session(
+          region_name =myRegion,
+          aws_access_key_id=assumedRoleObject.credentials.access_key,
+          aws_secret_access_key=assumedRoleObject.credentials.secret_key,
+          aws_session_token=assumedRoleObject.credentials.session_token)
