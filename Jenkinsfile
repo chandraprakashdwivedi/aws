@@ -3,6 +3,8 @@ def jenkinsUrl = "${env.JENKINS_URL}"
 def JOB_NAME = "${env.JOB_NAME}"
 def BUILD_ID = "${env.BUILD_ID}"
 def mailNotifier = 'jenkins@' + jenkinsUrl.replace('https://', '').replace('.com/','com')
+String cron_string = "H/30 * * * *"
+
                                                                            
 pipeline {
     agent any
@@ -12,6 +14,11 @@ pipeline {
     string(name: 'BUCKET', defaultValue: 'TEST231nhy', description: '')
     string(name: 'REGION', defaultValue: 'ap-south-1', description: '')
     }*/
+   
+  //To apply cron trigger
+  /*triggers {
+        cron(cron_string)
+        }*/
 
 
     stages {
