@@ -25,7 +25,7 @@ pipeline {
         stage('s3 Bucket creation using ansible') {
             steps {
                 echo 'S3 Bucket ${params.BUCKET} creation using ansible'
-                sh 'ansible-playbook s3.yml -e "myBucketName=$BUCKET  myRegion=$REGION" ' //use it if want to override variable
+               // sh 'ansible-playbook s3.yml -e "myBucketName=$BUCKET  myRegion=$REGION" ' //use it if want to override variable
                 sh 'ansible-playbook s3.yml '
             }
         /*stage('s3 Bucket creation using Terraform') {
