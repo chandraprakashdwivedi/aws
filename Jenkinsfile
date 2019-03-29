@@ -57,9 +57,9 @@ pipeline {
     always {
       mail (body: "This is the Build ID: ${BUILD_ID} \n Thanks& Regards #cp  ",
             from: "${mailNotifier}",
-            replyTo: 'donotreply@johndeere.com',
+            replyTo: 'donotreply@gmail.com',
             subject: "${appname} ${JOB_NAME}",
-            to: 'dwivedichandra@johndeere.com')
+            to: 'chandra.prakash363@gmail.com')
 
    }
  }
