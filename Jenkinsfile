@@ -22,12 +22,12 @@ pipeline {
                 sh 'python create_s3_bucket.py '
                 }
            }*/
-        /*stage('s3 Bucket creation using ansible') {
+        stage('s3 Bucket creation using ansible') {
             steps {
                 echo 'S3 Bucket ${params.BUCKET} creation using ansible'
                 sh 'ansible-playbook s3.yml -e "myBucketName=$BUCKET  myRegion=$REGION" '
-            }*/
-        stage('s3 Bucket creation using Terraform') {
+            }
+        /*stage('s3 Bucket creation using Terraform') {
             steps {
                 echo 'S3 Bucket ${params.BUCKET} creation using terraform'
                 // Needed to delete terraform.tfstate files in workspace before doing next build otherwise it automaticaly destroy the things created on previous build 
@@ -36,7 +36,7 @@ pipeline {
                  sh ' terraform init terraform ' //only needed first time when you run project
                  sh ' terraform apply -auto-approve -var-file="terraform/custom.tfvars" terraform '
             }
-        }
+        }*/
     }
   
     /*  post {
