@@ -1,0 +1,1 @@
+aws ec2  describe-subnets --profile abc --filters "Name=vpc-id,Values=vpc-???" --query "Subnets[*].[SubnetId,AvailableIpAddressCount]"
