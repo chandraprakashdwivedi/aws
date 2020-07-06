@@ -1,0 +1,7 @@
+#!/bin/bash
+aws sts assume-role --role-arn arn:aws:iam::ACCOUNT_NUMBER:role/SLAVE-JENKINS-ROLE --role-session-name XYZ > /tmp/temp_1_1.txt
+AWS_ACCESS_KEY_ID=$(cat /tmp/temp_1_1.txt |grep AccessKeyId | awk -F'[""]' '{print $4 "\t"}' | awk '{$1=$1;print}')
+AWS_SECRET_ACCESS_KEY=$(cat /tmp/temp_1_1.txt |grep SecretAccessKey | awk -F'[""]' '{print $4 "\t"}' | awk '{$1=$1;print}')
+AWS_SESSION_TOKEN=$(cat /tmp/temp_1_1.txt |grep SessionToken | awk -F'[""]' '{print $4 "\t"}' | awk '{$1=$1;print}')
+
+aws s3 ls
